@@ -204,7 +204,7 @@ label span.text-checkbox {
 .userContents{
 display: flex;
 justify-content: center;
-padding: 20%;
+padding: 2%;
 }
 .header-first{
   display: flex;
@@ -223,4 +223,9 @@ padding: 20%;
   padding: 10px 64px;
   min-height: 30px;
   flex-direction: column;
+}
+.userContents-inside{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
