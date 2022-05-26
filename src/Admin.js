@@ -1,5 +1,5 @@
 import { type } from "@testing-library/user-event/dist/type";
-import React from "react";
+import React,{useState} from "react";
 import {
   NavbarText,
   Navbar,
@@ -17,8 +17,10 @@ import {
 import CommonTab from "./Commontabcomponent";
 
 const Admin = () => {
+  const [tabType,setTabType]=useState(1);
   const handleClick = (type) => {
-    console.log(type(1));
+    // console.log(type(1));
+    setTabType(type)
   }
   
   return (
@@ -36,7 +38,7 @@ const Admin = () => {
         </div>
       </header>
       <div className="userContents">
-        <div>
+        <div className="userContents-inside">
           <Navbar color="light" expand="md" light>
             {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
             <NavbarToggler onClick={function noRefCheck() {}} />
@@ -64,7 +66,7 @@ const Admin = () => {
 
             </Collapse>
           </Navbar>
-          <CommonTab headingName={'Admin'}/>
+        { (tabType==1||tabType==2||tabType==3)? <CommonTab tabType={tabType}/>:null}
         </div>
       </div>
     </>
