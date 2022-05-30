@@ -18,8 +18,10 @@ body {
 }
 .leftImg {
   width: 90%;
-  margin: auto;
+  /* margin: auto; */
   margin-top: 5px;
+  margin-bottom: 99px;
+  margin-left: 20px;
 }
 .left-h2 {
   font-size: 60px;
@@ -27,6 +29,7 @@ body {
   /* font-weight: 900; */
   margin-left: 20px;
   margin-bottom: 30px;
+  margin-top: 74px;
   color: black;
 }
 .box-form {
@@ -102,6 +105,7 @@ body {
   padding: 40px;
   overflow: hidden;
   width: 50%;
+  margin-top: 101px;
 }
 @media (max-width: 980px) {
   .box-form .right {
@@ -111,7 +115,7 @@ body {
 .box-form .right h5 {
   font-size: 6vmax;
   line-height: 0;
-  padding-bottom: 60;
+  padding-bottom: 60px;
 }
 .box-form .right p {
   font-size: 14px;
