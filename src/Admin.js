@@ -1,5 +1,6 @@
 import { type } from "@testing-library/user-event/dist/type";
-import React,{useState} from "react";
+import React, { useState } from "react";
+import { useNavigate, useRoutes } from "react-router";
 import {
   NavbarText,
   Navbar,
@@ -15,14 +16,21 @@ import {
   DropdownItem,
 } from "reactstrap";
 import CommonTab from "./Commontabcomponent";
-
+import BusComponent from "./Buscomponent";
+import DriverComponent from "./Drivercomponent";
+import { Navigate } from "react-router";
 const Admin = () => {
-  const [tabType,setTabType]=useState(1);
+  const navigate = useNavigate();
+  const [tabType, setTabType] = useState(1);
   const handleClick = (type) => {
     // console.log(type(1));
-    setTabType(type)
-  }
-  
+    setTabType(type);
+  };
+
+  const handleLogout = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <header className="userheader">
@@ -34,7 +42,12 @@ const Admin = () => {
             {" "}
             welcome {JSON.parse(sessionStorage.getItem("userDetails"))?.name}
           </p>
-          <button className="login-button logout">Logout </button>
+          <button
+            className="login-button logout"
+            onClick={() => handleLogout()}
+          >
+            Logout{" "}
+          </button>
         </div>
       </header>
       <div className="userContents">
@@ -44,29 +57,28 @@ const Admin = () => {
             <NavbarToggler onClick={function noRefCheck() {}} />
             <Collapse navbar>
               <Nav className="me-auto" navbar>
-                <NavItem >
+                <NavItem>
                   <NavLink onClick={() => handleClick(1)}>Admin</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink onClick={()=>handleClick(2)}>
-                    Student
-                  </NavLink>
+                  <NavLink onClick={() => handleClick(2)}>Student</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink onClick={()=>handleClick(3)}>
-                    Driver
-                  </NavLink>
+                  <NavLink onClick={() => handleClick(3)}>Driver</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink onClick={()=>handleClick(4)}>
-                    Buses
-                  </NavLink>
+                  <NavLink onClick={() => handleClick(4)}>Buses</NavLink>
                 </NavItem>
               </Nav>
-
             </Collapse>
           </Navbar>
-        { (tabType==1||tabType==2||tabType==3)? <CommonTab tabType={tabType}/>:null}
+          {tabType == 1 || tabType == 2 ? (
+            <CommonTab tabType={tabType} />
+          ) : tabType == 4 ? (
+            <BusComponent />
+          ) : tabType == 3 ? (
+            <DriverComponent />
+          ) : null}
         </div>
       </div>
     </>

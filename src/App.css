@@ -6,29 +6,28 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #333333;
 }
-*{
+* {
   box-sizing: border-box;
 }
-.left{
+.left {
   background-color: #f6f8f5;
 }
-.left-p{
+.left-p {
   color: #333333;
   margin-left: 25px;
 }
-.leftImg{
+.leftImg {
   width: 90%;
   margin: auto;
   margin-top: 5px;
 }
-.left-h2{
+.left-h2 {
   font-size: 60px;
-    line-height: 1;
-    font-weight: 900;
+  line-height: 1;
+  /* font-weight: 900; */
   margin-left: 20px;
-    margin-bottom: 30px;
-    color: black;
-  
+  margin-bottom: 30px;
+  color: black;
 }
 .box-form {
   margin: 0 auto;
@@ -43,7 +42,7 @@ body {
   background-image: no-repeat;
   justify-content: space-between;
   box-shadow: 0 0 20px 6px #090b6f85;
-  height: 100vh;;
+  height: 100vh;
 }
 @media (max-width: 980px) {
   .box-form {
@@ -57,7 +56,7 @@ body {
   height: auto;
 }
 .box-form .left {
-  color: #FFFFFF;
+  color: #ffffff;
   background-size: 100% 86%;
   background-repeat: no-repeat;
   /* background-image: url(../Premium\ Vector\ _\ Flat\ bus\ with\ building.jpg); */
@@ -88,7 +87,7 @@ body {
 }
 .box-form .left .overlay span a {
   background: #3b5998;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 10px;
   padding: 14px 50px;
   border-radius: 100px;
@@ -112,10 +111,11 @@ body {
 .box-form .right h5 {
   font-size: 6vmax;
   line-height: 0;
+  padding-bottom: 60;
 }
 .box-form .right p {
   font-size: 14px;
-  color: #B0B3B9;
+  color: #b0b3b9;
 }
 .box-form .right .inputs {
   overflow: hidden;
@@ -123,11 +123,12 @@ body {
 .box-form .right input {
   width: 100%;
   padding: 10px;
+  /* padding-bottom: 100px; */
   margin-top: 25px;
   font-size: 16px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #B0B3B9;
+  border-bottom: 2px solid #b0b3b9;
 }
 .box-form .right .remember-me--forget-password {
   display: flex;
@@ -149,10 +150,8 @@ body {
   border: 0;
   outline: 0;
   box-shadow: 0px 4px 20px 0px #49c628a6;
-  background-image: linear-gradient(135deg, #70F570 10%, #49C628 100%);
+  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
 }
-
-
 
 label span.text-checkbox {
   display: inline-block;
@@ -162,23 +161,22 @@ label span.text-checkbox {
   transition: all 0.2s linear;
 }
 
-
-.errorSpan{
+.errorSpan {
   color: red;
 }
-.login-button{
+.login-button {
   cursor: pointer;
 }
-.login-button:hover{
+.login-button:hover {
   background-color: rgb(57, 160, 216);
   background-image: none !important;
 }
-.userheader{
+.userheader {
   background-color: #1dcaff;
   min-height: 40px;
   display: flex;
 }
-.header-last{
+.header-last {
   justify-content: flex-end;
   background-color: #1dcaff;
   min-height: 40px;
@@ -188,44 +186,51 @@ label span.text-checkbox {
   flex-direction: column;
   align-items: flex-end;
 }
-.login-button.logout{
-  background-image: linear-gradient(135deg, #db3498 10%, hsl(287, 77%, 52%) 100%);
+.login-button.logout {
+  background-image: linear-gradient(
+    135deg,
+    #db3498 10%,
+    hsl(287, 77%, 52%) 100%
+  );
   border-radius: 24px;
   padding: 10px 15px;
-	color: inherit;
-	border: none;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
-.header-last-p{
+.header-last-p {
   margin-right: 10px;
 }
-.userContents{
-display: flex;
-justify-content: center;
-padding: 2%;
+.userContents {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
 }
-.header-first{
+.header-first {
   display: flex;
   justify-content: center;
 }
-.header-first h2{
+.header-first h2 {
   margin: auto auto auto 20px;
   width: max-content;
   text-align: center;
 }
-.ContensCard{
+.ContensCard {
   display: flex;
-  background-color: #B0B3B9;
+  background-color: #b0b3b9;
   border-radius: 24px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 10px 64px;
+  /* box-shadow: rgba(218, 47, 47, 0.24) 0px 3px 8px; */
+  padding: 10px 20px;
   min-height: 30px;
   flex-direction: column;
 }
-.userContents-inside{
+.userContents-inside {
   display: flex;
   flex-direction: column;
   width: 80%;
+}
+.btn {
+  border-radius: 20%;
 }

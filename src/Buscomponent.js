@@ -15,27 +15,9 @@ import {
   Label,
   Row,
 } from "reactstrap";
-import { useEffect, useState } from "react";
 import axios from "axios";
-function CommonTab({ tabType }) {
-  useEffect(() => {
-    console.log("changeTab");
-    setSearches({});
-    setValues({});
-  }, [tabType]);
-  const determineTabType = () => {
-    console.log(tabType);
-    if (tabType == 1) return "Admin";
-    if (tabType == 2) return "Student";
-    // if (tabType == 3) return "driver";
-    // if (tabType == 4) return "buses";
-  };
-  const determineuserType = () => {
-    if (tabType == 1) return "admin";
-    if (tabType == 2) return "user";
-    if (tabType == 3) return "driver";
-  };
-
+import { useState } from "react";
+function BusTab({ tabType }) {
   const [values, setValues] = useState({});
   const [searches, setSearches] = useState({});
   const handleChange = (e) => {
@@ -47,7 +29,6 @@ function CommonTab({ tabType }) {
     });
   };
   console.log(values);
-
   const handleSearch = (evn) => {
     console.log(evn.target.name, evn.target.value);
 
@@ -55,55 +36,58 @@ function CommonTab({ tabType }) {
       [evn.target.name]: evn.target.value,
     });
   };
-  const handleClick = async () => {
-    if (tabType == 1) {
-      let responseData = await axios.post("http://localhost:8081/adduser", {
-        user: values.user,
-        password: values.password,
-        userType: determineuserType(),
-      });
-      // console.log(responseData.data?.data?.userType);
+    console.log(searches); 
+    
+    const handleClick = async () => {
+        let responseData = await axios.post("http://localhost:8081/addBuses", {
+      //name: values.name,
+            Route: values.Route,
+            startingDes: values.startingDes,
+            endindDes: values.endindDes,
+    });
     }
-    if (tabType == 2) {
-      let responseData = await axios.post("http://localhost:8081/adduser", {
-        user: values.user,
-        password: values.password,
-        userType: determineuserType(),
-      });
-      // console.log(responseData.data?.data?.userType);
-    }
-  };
-  console.log(searches);
+
   return (
     <>
       <div className="CommonTab-add">
-        <h2 className="CommonTab-add-h2">Add {determineTabType()}</h2>
+        <h2 className="CommonTab-add-h2">Add Buses</h2>
 
         <Form>
           <Row>
             <Col md={6}>
               <FormGroup>
-                <Label for="exampleEmail">Username</Label>
+                <Label for="BusRoute">Route.No</Label>
                 <Input
-                  id="exampleEmail"
-                  placeholder="Username placeholder"
+                  id="exampleBus"
+                  placeholder="Route placeholder"
                   type="text"
                   onChange={(e) => handleChange(e)}
-                  name="user"
-                  value={values?.user || ""}
+                  name="Route"
+                  value={values?.Route || ""}
                 />
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
-                <Label for="examplePassword">Password</Label>
+                <Label for="examplePassword">Starting Destination</Label>
                 <Input
                   id="examplePassword"
-                  placeholder="password placeholder"
+                  placeholder="Destination placeholder"
                   type="text"
                   onChange={(e) => handleChange(e)}
-                  name="password"
-                  value={values?.password || ""}
+                  name="startingDes"
+                  value={values?.startingDes || ""}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="examplePassword">Ending Destination</Label>
+                <Input
+                  id="examplePassword"
+                  placeholder="Destination placeholder"
+                  type="text"
+                  onChange={(e) => handleChange(e)}
+                  name="endindDes"
+                  value={values?.endindDes || ""}
                 />
               </FormGroup>
             </Col>
@@ -125,7 +109,7 @@ function CommonTab({ tabType }) {
                 placeholder="with a placeholder"
                 type="text"
                 onChange={(evn) => handleSearch(evn)}
-                value={values?.search || ""}
+                value={searches?.search || ""}
               />
             </FormGroup>
           </Col>
@@ -134,5 +118,4 @@ function CommonTab({ tabType }) {
     </>
   );
 }
-
-export default CommonTab;
+export default BusTab;
